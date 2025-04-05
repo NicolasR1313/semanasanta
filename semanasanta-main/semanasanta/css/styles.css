@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap');
+
+body {
+    background-color: #2b1b17; /* Burdeos oscuro */
+    color: #f8e4b7; /* Dorado tenue */
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado estilo vitral */
+.header {
+    background: linear-gradient(to right, #4a1f1f, #2b1b17);
+    text-align: center;
+    padding: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f8e4b7;
+    border-bottom: 4px solid #a67c52;
+    font-family: 'Great Vibes', cursive;
+}
+
+/* Botones con efecto dorado */
+button {
+    background: #764d2b;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #9c7a4a;
+    transform: scale(1.05);
+}
+
+/* Galería barroca */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.artwork {
+    background: #f8e4b7;
+    padding: 15px;
+    border: 3px solid #a67c52;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    width: 250px;
+}
+
+.artwork img {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #764d2b;
+}
+
+.artwork p {
+    font-weight: bold;
+    color: #2b1b17;
+}
+
+/* Formularios barrocos */
+form {
+    background: rgba(255, 248, 220, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid #a67c52;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #764d2b;
+    border-radius: 5px;
+}
+
+input:focus {
+    border-color: #9c7a4a;
+    outline: none;
+}
+
+/* Footer barroco */
+footer {
+    background: #1e0d08;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    border-top: 3px solid #a67c52;
+}
