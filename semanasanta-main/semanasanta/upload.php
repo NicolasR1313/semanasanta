@@ -10,7 +10,19 @@ if (!isset($_SESSION['user_id'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titulo = $_POST['titulo'];
     $imagen = $_FILES['imagen']['name'];
-    $ruta = "uploads/" . basename($imagen);
+
+    // Ruta al volumen montado en Railway
+    $uploadDir = '/mnt/volume_town/uploads/';
+
+    // Asegurarse de que la carpeta exista
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+
+    // Asegurar permisos de escritura
+    chmod($uploadDir, 0777);
+
+    $ruta = $uploadDir . basename($imagen);
 
     if (move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta)) {
         $user_id = $_SESSION['user_id'];
@@ -18,6 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_query($conn, $query);
         header("Location: index.php");
         exit();
+    } else {
+        echo "<p style='color:red;'>⚠️ Error al subir la imagen. Verifica permisos o el montaje del volumen.</p>";
     }
 }
 ?>
@@ -34,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: #4b2e1e;
             margin: 0;
             padding: 0;
-           
         }
 
         .container {
