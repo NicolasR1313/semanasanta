@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# Crear carpeta dentro del volumen montado
+# Crear carpeta si no existe
 mkdir -p /mnt/volume_town/uploads
 
-# Dar permisos para que PHP pueda escribir
-chown -R www-data:www-data /mnt/volume_town/uploads
+# Forzar permisos cada vez que arranca (por si el volumen lo borra)
 chmod -R 777 /mnt/volume_town/uploads
 
 # Iniciar Apache
