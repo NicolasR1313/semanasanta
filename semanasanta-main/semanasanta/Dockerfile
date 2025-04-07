@@ -16,15 +16,22 @@ COPY . /var/www/html/
 # Dar permisos a los archivos
 RUN chown -R www-data:www-data /var/www/html
 
+# Crear la carpeta de volumen si no existe y darle permisos
+RUN mkdir -p /mnt/volume_town/uploads && \
+    chown -R www-data:www-data /mnt/volume_town/uploads && \
+    chmod -R 755 /mnt/volume_town/uploads
+
+# Crear un alias simbólico para acceder desde el navegador
+RUN ln -s /mnt/volume_town/uploads /var/www/html/semanasanta/uploads
+
 # Establecer el directorio de trabajo
 WORKDIR /var/www/html
 
 # Exponer el puerto 8080
 EXPOSE 8080
 
+# Declarar el volumen
+VOLUME /mnt/volume_town/uploads
+
 # Iniciar Apache
-CMD ["apache2-foreground"]]
-
-# Al final del Dockerfile
-VOLUME /app/semanasanta/uploads
-
+CMD ["apache2-foreground"]
