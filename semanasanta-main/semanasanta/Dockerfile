@@ -23,4 +23,8 @@ WORKDIR /var/www/html
 EXPOSE 8080
 
 # Iniciar Apache
-CMD ["apache2-foreground"]
+CMD ["apache2-foreground"]]
+
+# Al final del Dockerfile
+VOLUME /app/semanasanta/uploads
+
