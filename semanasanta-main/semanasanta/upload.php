@@ -10,7 +10,8 @@ if (!isset($_SESSION['user_id'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titulo = mysqli_real_escape_string($conn, $_POST['titulo']);
     $imagen = basename($_FILES['imagen']['name']);
-    $ruta = "/mnt/volume_town/uploads/" . basename($_FILES['imagen']['name']);
+    $ruta = __DIR__ . "/uploads/" . $imagen;
+
 
 
     if (move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta)) {
