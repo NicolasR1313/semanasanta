@@ -29,28 +29,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- <- Importante -->
     <title>Iniciar Sesión - Semana Santa</title>
     <style>
         body {
-    background: url('fondos/fondoinicio.jpg') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Georgia', serif;
-    margin: 0;
-    padding: 0;
-    color: #4b2e1e;
-}
-
+            background: url('fondos/fondoinicio.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            color: #4b2e1e;
+        }
 
         .login-container {
             background-color: rgba(255, 248, 225, 0.95);
+            width: 90%;
             max-width: 400px;
-            margin: 100px auto;
-            padding: 40px;
+            margin: 80px auto;
+            padding: 30px;
             border-radius: 20px;
             border: 5px double #d4af37;
             box-shadow: 0 0 20px rgba(139, 94, 60, 0.4);
@@ -58,9 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         h2 {
-            font-size: 2.2em;
+            font-size: 2em;
             color: #8b5e3c;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-shadow: 1px 1px #fff;
             border-bottom: 2px solid #d4af37;
             display: inline-block;
@@ -113,6 +113,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .link a {
             color: #8b5e3c;
             text-decoration: underline;
+        }
+
+        /* 🎯 Responsive para móviles */
+        @media (max-width: 480px) {
+            .login-container {
+                margin: 40px 20px;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.7em;
+            }
+
+            input, button {
+                font-size: 1em;
+                padding: 10px;
+            }
+
+            .link {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
