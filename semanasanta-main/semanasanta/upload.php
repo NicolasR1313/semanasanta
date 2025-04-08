@@ -1,13 +1,13 @@
 <?php
 session_start();
-include "includes/db.php"; // Asegúrate que este archivo se conecta bien a tu BD en Railway
+include "includes/db.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
-    $cloud_name = 'dsktdsxik'; // Reemplaza esto con tu cloud_name real
+
+    $cloud_name = 'dsktdsxik'; // <-- Reemplaza con tu nombre real de Cloudinary
     $upload_preset = 'imagenes';
 
     $tmp_path = $_FILES["archivo"]["tmp_name"];
-    $titulo = $_POST['titulo'];
 
     $cloudinary_url = "https://api.cloudinary.com/v1_1/$cloud_name/image/upload";
 
@@ -29,21 +29,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
     if (isset($res['secure_url'])) {
         $url = $res['secure_url'];
 
-        // Guardar en la base de datos
-        $stmt = $conn->prepare("INSERT INTO ilustraciones (titulo, imagen) VALUES (?, ?)");
-        $stmt->bind_param("ss", $titulo, $url);
-        $stmt->execute();
+        // Capturamos el título si lo envías desde el formulario
+        $titulo = isset($_POST['titulo']) ? mysqli_real_escape_string($conn, $_POST['titulo']) : 'Sin título';
 
-        $_SESSION['mensaje'] = "✅ Ilustración subida con éxito.";
-        header("Location: index.php");
-        exit;
+        // Insertamos en la base de datos
+        $query = "INSERT INTO ilustraciones (titulo, imagen1) VALUES ('$titulo', '$url')";
+        if (mysqli_query($conn, $query)) {
+            $_SESSION['mensaje'] = "✅ Imagen subida y registrada correctamente.";
+            header("Location: index.php");
+            exit;
+        } else {
+            echo "⚠️ Error al guardar en la base de datos: " . mysqli_error($conn);
+        }
     } else {
-        echo "❌ Error al subir a Cloudinary:<br><pre>" . print_r($res, true) . "</pre>";
+        echo "⚠️ Error al subir la imagen a Cloudinary.";
     }
+
 } else {
     echo "❌ No se recibió ninguna imagen.";
 }
-?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -112,10 +117,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
 <body>
     <div class="container">
         <h2>🖌️ Subir Ilustración</h2>
-        <form action="upload.php" method="POST" enctype="multipart/form-data">
-            <input type="file" name="archivo" required>
-            <button type="submit">Subir imagen</button>
-        </form>
+       <form action="upload.php" method="POST" enctype="multipart/form-data">
+    <input type="text" name="titulo" placeholder="Título de la ilustración" required>
+    <input type="file" name="archivo" required>
+    <button type="submit">Subir imagen</button>
+</form>
 
         <?php if ($mensaje): ?>
             <div class="mensaje"><?= $mensaje ?></div>
