@@ -1,11 +1,12 @@
 <?php
+$mensaje = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
 
-    $cloud_name = 'TU_CLOUD_NAME'; // <-- Cámbialo por el tuyo (ej: dksueh71k)
+    $cloud_name = 'TU_CLOUD_NAME'; // ← Cambia por el tuyo real
     $upload_preset = 'imagenes';
 
     $tmp_path = $_FILES["archivo"]["tmp_name"];
-
     $cloudinary_url = "https://api.cloudinary.com/v1_1/$cloud_name/image/upload";
 
     $data = [
@@ -24,16 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
     $res = json_decode($response, true);
 
     if (isset($res['secure_url'])) {
-        echo "✅ Imagen subida con éxito: <a href='" . $res['secure_url'] . "' target='_blank'>Ver imagen</a>";
+        $mensaje = "✅ Imagen subida con éxito: <a href='" . $res['secure_url'] . "' target='_blank'>Ver imagen</a>";
     } else {
-        echo "⚠️ Error al subir la imagen a Cloudinary.";
+        $mensaje = "⚠️ Error al subir la imagen a Cloudinary.";
     }
-
-} else {
-    echo "❌ No se recibió ninguna imagen.";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -48,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
             margin: 0;
             padding: 0;
         }
-
         .container {
             max-width: 600px;
             margin: 80px auto;
@@ -59,15 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
             box-shadow: 0 0 20px rgba(139, 94, 60, 0.4);
             text-align: center;
         }
-
         h2 {
             font-size: 2.2em;
             color: #8b5e3c;
             margin-bottom: 25px;
             text-shadow: 1px 1px #fff;
         }
-
-        form input[type="text"],
         form input[type="file"] {
             width: 90%;
             padding: 10px;
@@ -77,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
             background-color: #fffdf5;
             font-size: 1em;
         }
-
         button {
             background-color: #a67c52;
             color: white;
@@ -88,16 +80,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
             font-weight: bold;
             transition: background 0.3s ease;
         }
-
         button:hover {
             background-color: #8c6239;
         }
-
         a {
             display: inline-block;
             margin-top: 20px;
             color: #6f4e37;
             text-decoration: underline;
+        }
+        .mensaje {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #6f4e37;
         }
     </style>
 </head>
@@ -105,9 +100,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
     <div class="container">
         <h2>🖌️ Subir Ilustración</h2>
         <form action="upload.php" method="POST" enctype="multipart/form-data">
-    <input type="file" name="archivo" required>
-    <button type="submit">Subir imagen</button>
-</form>
+            <input type="file" name="archivo" required>
+            <button type="submit">Subir imagen</button>
+        </form>
+
+        <?php if ($mensaje): ?>
+            <div class="mensaje"><?= $mensaje ?></div>
+        <?php endif; ?>
+
         <a href="index.php">← Volver a la galería</a>
     </div>
 </body>
