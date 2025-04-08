@@ -3,7 +3,7 @@ $mensaje = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
 
-    $cloud_name = 'TU_CLOUD_NAME'; // ← Cambia por el tuyo real
+    $cloud_name = 'dsktdsxik'; // ← Cambia por el tuyo real
     $upload_preset = 'imagenes';
 
     $tmp_path = $_FILES["archivo"]["tmp_name"];
