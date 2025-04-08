@@ -154,7 +154,8 @@ $result = mysqli_query($conn, $query);
     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <div class="artwork">
             <div class="zoom-container">
-                <img src="uploads/<?php echo $row['imagen']; ?>" alt="Ilustración">
+                <img src="<?php echo $row['imagen1']; ?>" alt="Ilustración">
+
                 <span class="zoom-icon">🔍</span>
             </div>
             <p><strong><?php echo $row['titulo']; ?></strong></p>
