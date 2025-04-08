@@ -210,7 +210,8 @@ $usuarios_result = mysqli_query($conn, "
         <div class="gallery">
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                 <div class="artwork">
-                    <img src="uploads/<?php echo $row['imagen']; ?>" alt="Ilustración">
+                    <img src="<?php echo $row['imagen1']; ?>" alt="Ilustración">
+
                     <form method="POST">
                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                         <input type="text" name="new_title" value="<?php echo htmlspecialchars($row['titulo']); ?>" required>
