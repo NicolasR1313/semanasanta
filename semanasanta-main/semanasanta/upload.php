@@ -1,12 +1,14 @@
 <?php
-$mensaje = '';
+session_start();
+include "includes/db.php"; // Asegúrate que este archivo se conecta bien a tu BD en Railway
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
-
-    $cloud_name = 'dsktdsxik'; // ← Cambia por el tuyo real
+    $cloud_name = 'dsktdsxik'; // Reemplaza esto con tu cloud_name real
     $upload_preset = 'imagenes';
 
     $tmp_path = $_FILES["archivo"]["tmp_name"];
+    $titulo = $_POST['titulo'];
+
     $cloudinary_url = "https://api.cloudinary.com/v1_1/$cloud_name/image/upload";
 
     $data = [
@@ -25,10 +27,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
     $res = json_decode($response, true);
 
     if (isset($res['secure_url'])) {
-        $mensaje = "✅ Imagen subida con éxito: <a href='" . $res['secure_url'] . "' target='_blank'>Ver imagen</a>";
+        $url = $res['secure_url'];
+
+        // Guardar en la base de datos
+        $stmt = $conn->prepare("INSERT INTO ilustraciones (titulo, imagen) VALUES (?, ?)");
+        $stmt->bind_param("ss", $titulo, $url);
+        $stmt->execute();
+
+        $_SESSION['mensaje'] = "✅ Ilustración subida con éxito.";
+        header("Location: index.php");
+        exit;
     } else {
-        $mensaje = "⚠️ Error al subir la imagen a Cloudinary.";
+        echo "❌ Error al subir a Cloudinary:<br><pre>" . print_r($res, true) . "</pre>";
     }
+} else {
+    echo "❌ No se recibió ninguna imagen.";
 }
 ?>
 <!DOCTYPE html>
