@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         $query = "INSERT INTO ilustraciones (titulo, imagen1) VALUES ('$titulo', '$url')";
         if (mysqli_query($conn, $query)) {
             $_SESSION['mensaje'] = "✅ Imagen subida y registrada correctamente.";
-            header("Location: index.php");
+            header("Location: inicio.php");
             exit;
         } else {
             $mensaje = "⚠️ Error al guardar en la base de datos: " . mysqli_error($conn);
