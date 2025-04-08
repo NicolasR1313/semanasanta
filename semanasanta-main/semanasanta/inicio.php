@@ -69,6 +69,7 @@ $result = mysqli_query($conn, $query);
             border-radius: 10px;
             border: 2px solid #cba135;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         @media (min-width: 768px) {
@@ -135,6 +136,37 @@ $result = mysqli_query($conn, $query);
             width: 100%;
             max-width: 300px;
         }
+
+        /* MODAL - vista grande */
+        #imageModal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #imageModal img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        #closeModal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -154,8 +186,7 @@ $result = mysqli_query($conn, $query);
     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <div class="artwork">
             <div class="zoom-container">
-                <img src="<?php echo $row['imagen1']; ?>" alt="Ilustración">
-
+                <img src="<?php echo $row['imagen1']; ?>" alt="Ilustración" class="preview-img">
                 <span class="zoom-icon">🔍</span>
             </div>
             <p><strong><?php echo $row['titulo']; ?></strong></p>
@@ -175,6 +206,35 @@ $result = mysqli_query($conn, $query);
     <a href="logout.php"><button>🔒 Cerrar Sesión</button></a>
     <a href="register.php"><button>📝 ¿Nuevo? Regístrate</button></a>
 </div>
+
+<!-- Modal de imagen -->
+<div id="imageModal">
+    <span id="closeModal">&times;</span>
+    <img id="modalImage" src="" alt="Vista ampliada">
+</div>
+
+<script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.getElementById("closeModal");
+
+    document.querySelectorAll(".preview-img").forEach(img => {
+        img.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+        });
+    });
+
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+</script>
 
 </body>
 </html>
