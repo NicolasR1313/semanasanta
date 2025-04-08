@@ -104,11 +104,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
 <body>
     <div class="container">
         <h2>🖌️ Subir Ilustración</h2>
-        <form method="POST" enctype="multipart/form-data">
-            <input type="text" name="titulo" placeholder="Título" required>
-            <input type="file" name="imagen" required>
-            <button type="submit">Subir</button>
-        </form>
+        <form action="upload.php" method="POST" enctype="multipart/form-data">
+    <input type="file" name="archivo" required>
+    <button type="submit">Subir imagen</button>
+</form>
         <a href="index.php">← Volver a la galería</a>
     </div>
 </body>
