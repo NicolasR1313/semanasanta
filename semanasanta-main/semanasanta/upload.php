@@ -35,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         $titulo = isset($_POST['titulo']) ? mysqli_real_escape_string($conn, $_POST['titulo']) : 'Sin título';
 
         // Inserta en la base de datos en la columna imagen1
-        $query = "INSERT INTO ilustraciones (titulo, imagen1) VALUES ('$titulo', '$url')";
+        $query = "INSERT INTO ilustraciones (titulo, imagen1, imagen) VALUES ('$titulo', '$url', '')";
+
         if (mysqli_query($conn, $query)) {
             $_SESSION['mensaje'] = "✅ Imagen subida y registrada correctamente.";
             header("Location: inicio.php");
