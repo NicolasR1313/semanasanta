@@ -1,30 +1,39 @@
 <?php
-include "includes/db.php";
-session_start();
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+    $cloud_name = 'TU_CLOUD_NAME'; // <-- Cámbialo por el tuyo (ej: dksueh71k)
+    $upload_preset = 'imagenes';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $titulo = mysqli_real_escape_string($conn, $_POST['titulo']);
-    $imagen = basename($_FILES['imagen']['name']);
-    $ruta = __DIR__ . "/uploads/" . $imagen;
+    $tmp_path = $_FILES["archivo"]["tmp_name"];
 
+    $cloudinary_url = "https://api.cloudinary.com/v1_1/$cloud_name/image/upload";
 
+    $data = [
+        'file' => new CURLFile($tmp_path),
+        'upload_preset' => $upload_preset
+    ];
 
-    if (move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta)) {
-        $user_id = $_SESSION['user_id'];
-        $query = "INSERT INTO ilustraciones (titulo, imagen, votos, usuario_id) VALUES ('$titulo', '$imagen', 0, $user_id)";
-        mysqli_query($conn, $query);
-        header("Location: index.php");
-        exit();
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $cloudinary_url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $res = json_decode($response, true);
+
+    if (isset($res['secure_url'])) {
+        echo "✅ Imagen subida con éxito: <a href='" . $res['secure_url'] . "' target='_blank'>Ver imagen</a>";
     } else {
-        echo "⚠️ Error al subir la imagen. Verifica permisos o el montaje del volumen.";
+        echo "⚠️ Error al subir la imagen a Cloudinary.";
     }
+
+} else {
+    echo "❌ No se recibió ninguna imagen.";
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
