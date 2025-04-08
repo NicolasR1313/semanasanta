@@ -66,12 +66,12 @@ $usuarios_result = mysqli_query($conn, "
     JOIN ilustraciones ON usuarios.id = ilustraciones.usuario_id
 ");
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Panel de Administración</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsivo -->
     <style>
         body {
             background: url('fondos/fondoinicio.jpg') no-repeat center center fixed;
@@ -127,7 +127,7 @@ $usuarios_result = mysqli_query($conn, "
         }
 
         input[type="text"] {
-            width: 90%;
+            width: 100%;
             padding: 8px;
             border-radius: 6px;
             border: 1px solid #a67c52;
@@ -163,6 +163,8 @@ $usuarios_result = mysqli_query($conn, "
             border: 1px solid #a67c52;
             border-radius: 5px;
             margin-right: 10px;
+            margin-top: 10px;
+            width: 100%;
         }
 
         a {
@@ -177,6 +179,49 @@ $usuarios_result = mysqli_query($conn, "
             padding: 15px;
             border-radius: 10px;
             border: 2px dashed #d4af37;
+        }
+
+        form[method="GET"] label {
+            display: block;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+
+        form[method="GET"] button {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            input[type="text"],
+            select,
+            button {
+                width: 100%;
+                font-size: 1em;
+            }
+
+            button {
+                padding: 10px;
+            }
+
+            a {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -228,3 +273,4 @@ $usuarios_result = mysqli_query($conn, "
     </div>
 </body>
 </html>
+
