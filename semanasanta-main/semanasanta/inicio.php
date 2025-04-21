@@ -74,7 +74,7 @@ $result = mysqli_query($conn, $query);
 
         @media (min-width: 768px) {
             .zoom-container:hover img {
-                transform: scale(1.5); /* Efecto lupa solo en pantallas grandes */
+                transform: scale(1.5);
             }
         }
 
@@ -92,6 +92,20 @@ $result = mysqli_query($conn, $query);
         .artwork p {
             font-size: 1em;
             margin-top: 10px;
+        }
+
+        .ficha {
+            font-size: 0.9em;
+            color: #5c4033;
+            margin-top: 8px;
+            background: #fff3e0;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .ficha p {
+            margin: 3px 0;
         }
 
         button {
@@ -137,7 +151,6 @@ $result = mysqli_query($conn, $query);
             max-width: 300px;
         }
 
-        /* MODAL - vista grande */
         #imageModal {
             display: none;
             position: fixed;
@@ -190,7 +203,12 @@ $result = mysqli_query($conn, $query);
                 <span class="zoom-icon">🔍</span>
             </div>
             <p><strong><?php echo $row['titulo']; ?></strong></p>
-            <p>Votos: <?php echo $row['votos']; ?></p>
+            <div class="ficha">
+                <p><strong>Año:</strong> <?php echo $row['anio']; ?></p>
+                <p><strong>Técnica:</strong> <?php echo $row['tecnica']; ?></p>
+                <p><strong>Dimensiones:</strong> <?php echo $row['dimensiones']; ?></p>
+            </div>
+            <p><strong>Votos:</strong> <?php echo $row['votos']; ?></p>
             <?php if (isset($_SESSION['user_id'])) { ?>
                 <form action="vote.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
