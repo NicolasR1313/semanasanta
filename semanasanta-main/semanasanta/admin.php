@@ -9,10 +9,26 @@ if (!isset($_SESSION['user_id']) || $_SESSION['rol'] !== 'admin') {
 }
 
 // Editar título de ilustración
-if (isset($_POST['edit_title'])) {
+if (!isset($_SESSION['user_id']) || $_SESSION['rol'] !== 'admin') {
+    echo "Acceso denegado. Solo administradores.";
+    exit();
+}
+
+// Editar detalles de la ilustración
+if (isset($_POST['edit_details'])) {
     $id = $_POST['id'];
     $new_title = mysqli_real_escape_string($conn, $_POST['new_title']);
-    mysqli_query($conn, "UPDATE ilustraciones SET titulo = '$new_title' WHERE id = $id");
+    $new_tecnica = mysqli_real_escape_string($conn, $_POST['new_tecnica']);
+    $new_dimensiones = mysqli_real_escape_string($conn, $_POST['new_dimensiones']);
+    $new_anio = mysqli_real_escape_string($conn, $_POST['new_anio']);
+
+    // Actualizar en la base de datos
+    mysqli_query($conn, "UPDATE ilustraciones SET 
+        titulo = '$new_title', 
+        tecnica = '$new_tecnica', 
+        dimensiones = '$new_dimensiones', 
+        anio = '$new_anio' 
+        WHERE id = $id");
 }
 
 // Eliminar ilustración
@@ -259,8 +275,19 @@ $usuarios_result = mysqli_query($conn, "
 
                     <form method="POST">
                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                        <label for="new_title">Título:</label>
                         <input type="text" name="new_title" value="<?php echo htmlspecialchars($row['titulo']); ?>" required>
-                        <button type="submit" name="edit_title">Editar Título</button>
+
+                        <label for="new_tecnica">Técnica:</label>
+                        <input type="text" name="new_tecnica" value="<?php echo htmlspecialchars($row['tecnica']); ?>" required>
+
+                        <label for="new_dimensiones">Dimensiones:</label>
+                        <input type="text" name="new_dimensiones" value="<?php echo htmlspecialchars($row['dimensiones']); ?>" required>
+
+                        <label for="new_anio">Año:</label>
+                        <input type="text" name="new_anio" value="<?php echo htmlspecialchars($row['anio']); ?>" required>
+
+                        <button type="submit" name="edit_details">Editar Detalles</button>
                     </form>
                     <p><strong>Autor:</strong> <?php echo $row['usuario'] ?? 'Anónimo'; ?></p>
                     <p><strong>Votos:</strong> <?php echo $row['votos']; ?></p>
