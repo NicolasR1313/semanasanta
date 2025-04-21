@@ -31,14 +31,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
     if (isset($res['secure_url'])) {
         $url = $res['secure_url'];
 
-        // Captura el título desde el formulario
+        // Captura los datos del formulario
         $titulo = isset($_POST['titulo']) ? mysqli_real_escape_string($conn, $_POST['titulo']) : 'Sin título';
+        $tecnica = isset($_POST['tecnica']) ? mysqli_real_escape_string($conn, $_POST['tecnica']) : '';
+        $dimensiones = isset($_POST['dimensiones']) ? mysqli_real_escape_string($conn, $_POST['dimensiones']) : '';
+        $anio = isset($_POST['anio']) ? mysqli_real_escape_string($conn, $_POST['anio']) : '';
 
-        // Inserta en la base de datos en la columna imagen1
-        $query = "INSERT INTO ilustraciones (titulo, imagen1, imagen) VALUES ('$titulo', '$url', '')";
+        // Inserta en la base de datos
+        $query = "INSERT INTO ilustraciones (titulo, tecnica, dimensiones, anio, imagen1, imagen) 
+                  VALUES ('$titulo', '$tecnica', '$dimensiones', '$anio', '$url', '')";
 
         if (mysqli_query($conn, $query)) {
-            $_SESSION['mensaje'] = "✅ Imagen subida y registrada correctamente.";
+            $_SESSION['mensaje'] = "✅ Imagen y ficha técnica registradas correctamente.";
             header("Location: inicio.php");
             exit;
         } else {
@@ -125,6 +129,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
 
         <form action="upload.php" method="POST" enctype="multipart/form-data">
             <input type="text" name="titulo" placeholder="Título de la ilustración" required>
+            <input type="text" name="tecnica" placeholder="Técnica (Ej: Acuarela, Digital, etc.)">
+            <input type="text" name="dimensiones" placeholder="Dimensiones (Ej: 20x30 cm)">
+            <input type="text" name="anio" placeholder="Año de creación (Ej: 2025)">
             <input type="file" name="archivo" required>
             <button type="submit">Subir imagen</button>
         </form>
