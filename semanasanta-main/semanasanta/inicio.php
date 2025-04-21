@@ -222,7 +222,7 @@ $result = mysqli_query($conn, $query);
 <div class="nav">
     <a href="upload.php"><button>📤 Subir Ilustración</button></a>
     <a href="logout.php"><button>🔒 Cerrar Sesión</button></a>
-    <a href="register.php"><button>📝 ¿Nuevo? Regístrate</button></a>
+    <a href="index.php"><button>📝 ¿Nuevo? Regístrate</button></a>
 </div>
 
 <!-- Modal de imagen -->
