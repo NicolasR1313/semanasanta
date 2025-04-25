@@ -180,9 +180,36 @@ $result = mysqli_query($conn, $query);
             font-weight: bold;
             cursor: pointer;
         }
+
+        .corner-images {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.corner-images img {
+    width: 70px;
+    height: auto;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+
+.corner-images img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
     </style>
 </head>
 <body>
+<div class="corner-images">
+    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745614157/1pagina-removebg-preview_dd2fhn.png" alt="Página 1">
+    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745614157/2pagina-removebg-preview_jvb8ch.png" alt="Página 2">
+</div>
+
 
 <?php if (isset($_SESSION['mensaje'])): ?>
     <div class="message">
