@@ -180,33 +180,21 @@ $result = mysqli_query($conn, $query);
             font-weight: bold;
             cursor: pointer;
         }
+        .img-pagina1 {
+    width: 120px;   /* ajusta a lo que te parezca mejor */
+    height: auto;
+}
 
-        .corner-images {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 10px;
-    z-index: 1000;
+.img-pagina2 {
+    width: 70px;
+    height: auto;
 }
 
 .corner-images img {
-    width: 70px;
-    height: auto;
     opacity: 0.9;
     transition: transform 0.3s ease;
 }
-        
 
-.corner-images img:hover {
-    transform: scale(1.1);
-    opacity: 1;
-}
-.pagina1 {
-    width: 150px;     /* Ajusta este valor si quieres más grande o pequeño */
-    height: auto;
-    object-fit: contain;
-}
 
 
 
@@ -214,9 +202,10 @@ $result = mysqli_query($conn, $query);
 </head>
 <body>
 <div class="corner-images">
-    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745614157/1pagina-removebg-preview_dd2fhn.png" alt="Página 1">
-    <img class="pagina1" src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745614157/2pagina-removebg-preview_jvb8ch.png" alt="Página 2">
+    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745614157/1pagina-removebg-preview_dd2fhn.png" class="img-pagina1">
+    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745614157/2pagina-removebg-preview_jvb8ch.png" class="img-pagina2">
 </div>
+
 
 
 <?php if (isset($_SESSION['mensaje'])): ?>
