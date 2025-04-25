@@ -190,7 +190,18 @@ $result = mysqli_query($conn, $query);
     height: auto;
 }
 
+.corner-images {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
 .corner-images img {
+    width: auto;
+    height: 80px; /* ajusta esto según lo que te parezca visualmente correcto */
     opacity: 0.9;
     transition: transform 0.3s ease;
 }
