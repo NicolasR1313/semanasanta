@@ -203,11 +203,11 @@ $result = mysqli_query($conn, $query);
     opacity: 1;
 }
 .pagina1 {
+    width: 150px;     /* Ajusta este valor si quieres más grande o pequeño */
     height: auto;
-    width: auto;
-    max-height: 80px;
     object-fit: contain;
 }
+
 
 
     </style>
