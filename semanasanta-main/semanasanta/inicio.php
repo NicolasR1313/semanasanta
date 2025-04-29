@@ -202,8 +202,8 @@ $result = mysqli_query($conn, $query);
 }
 
 .corner-images img {
-    max-height: 25vh;
-    max-width: 35vw;
+    max-height: 20vh;
+    max-width: 30vw;
     height: auto;
     width: auto;
     opacity: 0.9;
