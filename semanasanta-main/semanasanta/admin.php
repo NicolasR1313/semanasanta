@@ -239,9 +239,50 @@ $usuarios_result = mysqli_query($conn, "
                 text-align: center;
             }
         }
+        .img-pagina1 {
+    width: 60px;   /* ajusta a lo que te parezca mejor */
+    height: auto;
+}
+
+.img-pagina2 {
+    width: 50px;
+    height: auto;
+}
+
+.corner-images {
+    position: fixed;
+    top: 1vw;
+    right: 1vw;
+    display: flex;
+    gap: 1vw;
+    z-index: 1000;
+}
+
+.corner-images img {
+    max-height: 15vh;
+    max-width: 25vw;
+    height: auto;
+    width: auto;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+        @media (max-width: 768px) {
+    .corner-images {
+        top: auto;
+        bottom: 1vw; /* cambia la posición vertical */
+        right: 1vw;
+        flex-direction: column; /* una imagen encima de la otra si lo prefieres */
+        align-items: flex-end;
+    }
+}
     </style>
 </head>
 <body>
+    <div class="corner-images">
+    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935311/logo_cenigraf-02_pa61ux.png" class="img-pagina1">
+    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935416/logo_evento_diaArte_Mesa_de_trabajo_1_anparc.png" class="img-pagina2">
+</div>
+
     <div class="container">
         <h2>🎨 Panel de Administración</h2>
         <a href="inicio.php">← Volver a la galería</a>
