@@ -267,15 +267,11 @@ $result = mysqli_query($conn, $query);
 
     </style>
 </head>
-<body>
-
-   
-
-<div class="corner-images">
+    <div class="corner-images">
     <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935311/logo_cenigraf-02_pa61ux.png" class="img-pagina1">
     <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935416/logo_evento_diaArte_Mesa_de_trabajo_1_anparc.png" class="img-pagina2">
 </div>
-
+<body>
 
 
 <?php if (isset($_SESSION['mensaje'])): ?>
