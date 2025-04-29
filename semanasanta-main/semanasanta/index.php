@@ -44,15 +44,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .container {
-            background-color: rgba(255, 248, 225, 0.95);
-            max-width: 500px;
-            margin: 80px auto;
-            padding: 40px;
-            border-radius: 20px;
-            border: 5px double #d4af37;
-            box-shadow: 0 0 20px rgba(139, 94, 60, 0.4);
-            text-align: center;
-        }
+    background-color: rgba(255, 248, 225, 0.95);
+    max-width: 400px; /* antes 500px */
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 20px;
+    border: 5px double #d4af37;
+    box-shadow: 0 0 20px rgba(139, 94, 60, 0.4);
+    text-align: center;
+}
+
 
         h2 {
             margin-bottom: 20px;
