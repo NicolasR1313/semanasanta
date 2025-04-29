@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: url('fondos/fondoinicio.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Georgia', serif;
-            margin: 0;
+            margin: 10px auto;
             padding: 0;
             color: #4b2e1e;
         }
