@@ -39,8 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         $autor = isset($_POST['autor']) ? mysqli_real_escape_string($conn, $_POST['autor']) : '';
 
         // Inserta en la base de datos
-        $query = "INSERT INTO ilustraciones (titulo, tecnica, dimensiones, anio, imagen1, imagen, autor) 
-                  VALUES ('$titulo', '$tecnica', '$dimensiones', '$anio', '$url', '$autor')";
+        $query = "INSERT INTO ilustraciones (titulo, tecnica, dimensiones, anio, imagen1, autor) 
+          VALUES ('$titulo', '$tecnica', '$dimensiones', '$anio', '$url', '$autor')";
+
 
         if (mysqli_query($conn, $query)) {
             $_SESSION['mensaje'] = "✅ Imagen y ficha técnica registradas correctamente.";
