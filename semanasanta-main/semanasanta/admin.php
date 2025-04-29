@@ -100,7 +100,7 @@ $usuarios_result = mysqli_query($conn, "
 
         .container {
             max-width: 1100px;
-            margin: 100px auto;
+            margin: 120px auto;
             background-color: rgba(255, 248, 225, 0.97);
             border: 5px double #d4af37;
             border-radius: 20px;
