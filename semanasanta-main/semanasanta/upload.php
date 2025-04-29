@@ -36,10 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         $tecnica = isset($_POST['tecnica']) ? mysqli_real_escape_string($conn, $_POST['tecnica']) : '';
         $dimensiones = isset($_POST['dimensiones']) ? mysqli_real_escape_string($conn, $_POST['dimensiones']) : '';
         $anio = isset($_POST['anio']) ? mysqli_real_escape_string($conn, $_POST['anio']) : '';
+        $autor = isset($_POST['autor']) ? mysqli_real_escape_string($conn, $_POST['autor']) : '';
 
         // Inserta en la base de datos
-        $query = "INSERT INTO ilustraciones (titulo, tecnica, dimensiones, anio, imagen1, imagen) 
-                  VALUES ('$titulo', '$tecnica', '$dimensiones', '$anio', '$url', '')";
+        $query = "INSERT INTO ilustraciones (titulo, tecnica, dimensiones, anio, imagen1, imagen, autor) 
+                  VALUES ('$titulo', '$tecnica', '$dimensiones', '$anio', '$url', '$autor')";
 
         if (mysqli_query($conn, $query)) {
             $_SESSION['mensaje'] = "✅ Imagen y ficha técnica registradas correctamente.";
@@ -173,6 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
             <input type="text" name="tecnica" placeholder="Técnica (Ej: Acuarela, Digital, etc.)">
             <input type="text" name="dimensiones" placeholder="Dimensiones (Ej: 20x30 cm)">
             <input type="text" name="anio" placeholder="Año de creación (Ej: 2025)">
+            <input type="text" name="autor" placeholder="Autor (Ej: Tu Nombre)"> 
             <input type="file" name="archivo" required>
             <button type="submit">Subir imagen</button>
         </form>
