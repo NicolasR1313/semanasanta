@@ -245,44 +245,70 @@ $usuarios_result = mysqli_query($conn, "
     width: 60px;   /* ajusta a lo que te parezca mejor */
     height: auto;
 }
-
-.img-pagina2 {
-    width: 50px;
-    height: auto;
+.header-flex h1 {
+    font-size: 2.2em;
+    color: white;
+    margin: 10px 0;
+    border-bottom: 4px double #d4af37;
+    padding-bottom: 10px;
+    font-family: Calibri, sans-serif;
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+    display: block; /* Cambio de inline-block a block */
+}
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Esto asegura que estén al mismo nivel verticalmente */
+    padding: 10px 20px;
+    flex-wrap: wrap;
 }
 
 .corner-images {
-    position: fixed;
-    top: 1vw;
-    right: 1vw;
     display: flex;
     gap: 1vw;
-    z-index: 1000;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .corner-images img {
-    max-height: 15vh;
+    max-height: 10vh;
     max-width: 25vw;
     height: auto;
     width: auto;
     opacity: 0.9;
     transition: transform 0.3s ease;
 }
-        @media (max-width: 768px) {
+
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
     .corner-images {
-        top: auto;
-        bottom: 1vw; /* cambia la posición vertical */
-        right: 1vw;
-        flex-direction: column; /* una imagen encima de la otra si lo prefieres */
-        align-items: flex-end;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .corner-images img {
+        max-width: 40vw;
     }
 }
+
+
     </style>
 </head>
 <body>
+    <div class="header-flex">
+    <h1>🎨 Bienvenido Admin</h1>
     <div class="corner-images">
-    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935311/logo_cenigraf-02_pa61ux.png" class="img-pagina1">
-    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935416/logo_evento_diaArte_Mesa_de_trabajo_1_anparc.png" class="img-pagina2">
+        <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935311/logo_cenigraf-02_pa61ux.png" class="img-pagina1">
+        <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935416/logo_evento_diaArte_Mesa_de_trabajo_1_anparc.png" class="img-pagina2">
+    </div>
 </div>
 
     <div class="container">
