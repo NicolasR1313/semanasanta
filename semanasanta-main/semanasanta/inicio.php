@@ -110,18 +110,18 @@ $result = mysqli_query($conn, $query);
             margin: 3px 0;
         }
 
-        button {
-            background-color: #cba135;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s ease;
-            width: 100%;
-            margin-top: 10px;
-        }
+       button {
+    background-color: #cba135;
+    color: white;
+    padding: 12px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid #8b5e3c; /* ayuda visual */
+    z-index: 10;
+    position: relative;
+}
+
 
         button:hover {
             background-color: #a57c1b;
