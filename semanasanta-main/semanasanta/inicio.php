@@ -255,7 +255,7 @@ $result = mysqli_query($conn, $query);
 .card-juliana img {
     width: 100%;
     max-height: 250px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 10px;
 }
 
