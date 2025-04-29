@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
 .header-flex h1 {
     font-size: 2.2em;
     color: white;
-    margin: 20px 0;
+    margin: 10px 0;
     border-bottom: 4px double #d4af37;
     display: inline-block;
     padding-bottom: 10px;
