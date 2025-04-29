@@ -202,13 +202,14 @@ $result = mysqli_query($conn, $query);
 }
 
 .corner-images img {
-    max-height: 10vh; /* no ocuparán más del 10% del alto de la pantalla */
-    max-width: 20vw;  /* no ocuparán más del 20% del ancho de la pantalla */
+    max-height: 30vh;
+    max-width: 40vw;
     height: auto;
     width: auto;
     opacity: 0.9;
     transition: transform 0.3s ease;
 }
+
 
 
 
