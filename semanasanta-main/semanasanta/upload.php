@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         }
         .container {
             max-width: 600px;
-            margin: 120px auto;
+            margin: 100px auto;
             background-color: rgba(255, 248, 225, 0.95);
             border: 5px double #d4af37;
             border-radius: 20px;
