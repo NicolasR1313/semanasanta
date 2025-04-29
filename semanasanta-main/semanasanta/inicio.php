@@ -183,12 +183,12 @@ $result = mysqli_query($conn, $query);
             cursor: pointer;
         }
         .img-pagina1 {
-    width: 70px;   /* ajusta a lo que te parezca mejor */
+    width: 60px;   /* ajusta a lo que te parezca mejor */
     height: auto;
 }
 
 .img-pagina2 {
-    width: 60px;
+    width: 50px;
     height: auto;
 }
 
@@ -202,8 +202,8 @@ $result = mysqli_query($conn, $query);
 }
 
 .corner-images img {
-    max-height: 20vh;
-    max-width: 30vw;
+    max-height: 15vh;
+    max-width: 25vw;
     height: auto;
     width: auto;
     opacity: 0.9;
