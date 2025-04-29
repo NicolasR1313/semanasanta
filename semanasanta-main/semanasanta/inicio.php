@@ -26,15 +26,17 @@ $result = mysqli_query($conn, $query);
             padding: 0;
         }
 
-        h1 {
-            text-align: center;
-            font-size: 2.2em;
-            color: white;
-            margin-top: 20px;
-            border-bottom: 4px double #d4af37;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
+       h1 {
+    text-align: center;
+    font-size: 2.2em;
+    color: white;
+    margin-top: 20px;
+    border-bottom: 4px double #d4af37;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-family: Calibri, sans-serif;
+}
+
 
         .gallery {
             display: flex;
@@ -181,12 +183,12 @@ $result = mysqli_query($conn, $query);
             cursor: pointer;
         }
         .img-pagina1 {
-    width: 120px;   /* ajusta a lo que te parezca mejor */
+    width: 110px;   /* ajusta a lo que te parezca mejor */
     height: auto;
 }
 
 .img-pagina2 {
-    width: 70px;
+    width: 90px;
     height: auto;
 }
 
