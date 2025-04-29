@@ -333,7 +333,7 @@ $result = mysqli_query($conn, $query);
     <div class="card-laura">
         <a href="https://www.youtube.com/watch?v=NgOWLtYV_OU" target="_blank">
             <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745947457/poster_3D_web_Mesa_de_trabajo_1_wnj8wa.jpg" alt="Video 1">
-            <h3>Título 1</h3>
+            <h3>Youtube: Modelo iglesia San Francisco</h3>
             <p>Hecho por: Laura Sánchez, Andrés Garzón, Gabriela Ramírez, José Flórez, Juan Palacios</p>
         </a>
     </div>
