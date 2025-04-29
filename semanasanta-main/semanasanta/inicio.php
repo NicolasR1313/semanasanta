@@ -209,6 +209,15 @@ $result = mysqli_query($conn, $query);
     opacity: 0.9;
     transition: transform 0.3s ease;
 }
+        @media (max-width: 768px) {
+    .corner-images {
+        top: auto;
+        bottom: 1vw; /* cambia la posición vertical */
+        right: 1vw;
+        flex-direction: column; /* una imagen encima de la otra si lo prefieres */
+        align-items: flex-end;
+    }
+}
 
 
 
