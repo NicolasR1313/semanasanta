@@ -369,6 +369,7 @@ $result = mysqli_query($conn, $query);
                 <p><strong>Año:</strong> <?php echo $row['anio']; ?></p>
                 <p><strong>Técnica:</strong> <?php echo $row['tecnica']; ?></p>
                 <p><strong>Dimensiones:</strong> <?php echo $row['dimensiones']; ?></p>
+                <p><strong>Autor:</strong> <?php echo $row['autor']; ?></p>
             </div>
             <p><strong>Votos:</strong> <?php echo $row['votos']; ?></p>
             <?php if (isset($_SESSION['user_id'])) { ?>
