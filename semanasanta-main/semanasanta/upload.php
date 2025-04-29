@@ -160,12 +160,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
         align-items: flex-end;
     }
 }
+        .header-flex h1 {
+    font-size: 2.2em;
+    color: white;
+    margin: 20px 0;
+    border-bottom: 4px double #d4af37;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-family: Calibri, sans-serif;
+    text-align: left;
+    flex: 1;
+    min-width: 200px;
+}
     </style>
 </head>
-<body>
+<div class="header-flex">
+    <h1>🎨 Subir Imagen</h1>
     <div class="corner-images">
-    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935311/logo_cenigraf-02_pa61ux.png" class="img-pagina1">
-    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935416/logo_evento_diaArte_Mesa_de_trabajo_1_anparc.png" class="img-pagina2">
+        <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935311/logo_cenigraf-02_pa61ux.png" class="img-pagina1">
+        <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935416/logo_evento_diaArte_Mesa_de_trabajo_1_anparc.png" class="img-pagina2">
+    </div>
 </div>
 
     <div class="container">
