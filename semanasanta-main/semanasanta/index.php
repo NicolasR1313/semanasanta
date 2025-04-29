@@ -45,8 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .container {
     background-color: rgba(255, 248, 225, 0.95);
-    max-width: 400px; /* antes 500px */
-    margin: 80px auto;
+    max-width: 450px; /* antes 500px */
+    margin: 70px auto;
     padding: 40px;
     border-radius: 20px;
     border: 5px double #d4af37;
