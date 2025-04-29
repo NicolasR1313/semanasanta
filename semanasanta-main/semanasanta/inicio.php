@@ -192,19 +192,22 @@ $result = mysqli_query($conn, $query);
 
 .corner-images {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 1vw;
+    right: 1vw;
     display: flex;
-    gap: 10px;
+    gap: 1vw;
     z-index: 1000;
 }
 
 .corner-images img {
+    max-height: 10vh; /* no ocuparán más del 10% del alto de la pantalla */
+    max-width: 20vw;  /* no ocuparán más del 20% del ancho de la pantalla */
+    height: auto;
     width: auto;
-    height: 80px; /* ajusta esto según lo que te parezca visualmente correcto */
     opacity: 0.9;
     transition: transform 0.3s ease;
 }
+
 
 
 
