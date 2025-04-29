@@ -193,13 +193,14 @@ $result = mysqli_query($conn, $query);
 }
 
 .corner-images {
-    position: fixed;
+    position: fixed !important;
     top: 1vw;
     right: 1vw;
     display: flex;
     gap: 1vw;
-    z-index: 1000;
+    z-index: 9999;
 }
+
 
 .corner-images img {
     max-height: 15vh;
