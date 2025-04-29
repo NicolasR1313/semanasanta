@@ -183,12 +183,12 @@ $result = mysqli_query($conn, $query);
             cursor: pointer;
         }
         .img-pagina1 {
-    width: 90px;   /* ajusta a lo que te parezca mejor */
+    width: 70px;   /* ajusta a lo que te parezca mejor */
     height: auto;
 }
 
 .img-pagina2 {
-    width: 90px;
+    width: 60px;
     height: auto;
 }
 
