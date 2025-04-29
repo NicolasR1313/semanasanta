@@ -21,6 +21,7 @@ if (isset($_POST['edit_details'])) {
     $new_tecnica = mysqli_real_escape_string($conn, $_POST['new_tecnica']);
     $new_dimensiones = mysqli_real_escape_string($conn, $_POST['new_dimensiones']);
     $new_anio = mysqli_real_escape_string($conn, $_POST['new_anio']);
+    $new_autor = mysqli_real_escape_string($conn, $_POST['new_autor']);
 
     // Actualizar en la base de datos
     mysqli_query($conn, "UPDATE ilustraciones SET 
@@ -28,6 +29,7 @@ if (isset($_POST['edit_details'])) {
         tecnica = '$new_tecnica', 
         dimensiones = '$new_dimensiones', 
         anio = '$new_anio' 
+        autor = '$new_autor' 
         WHERE id = $id");
 }
 
@@ -327,6 +329,9 @@ $usuarios_result = mysqli_query($conn, "
 
                         <label for="new_anio">Año:</label>
                         <input type="text" name="new_anio" value="<?php echo htmlspecialchars($row['anio']); ?>" required>
+
+                        <label for="new_autor">Autor:</label>
+                        <input type="text" name="new_autor" value="<?php echo htmlspecialchars($row['autor']); ?>" required>
 
                         <button type="submit" name="edit_details">Editar Detalles</button>
                     </form>
