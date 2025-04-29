@@ -261,23 +261,7 @@ $result = mysqli_query($conn, $query);
 </head>
 <body>
 
-    <div class="fixed-cards">
-    <a href="https://www.youtube.com/watch?v=video1" target="_blank" class="card">
-        <img src="https://via.placeholder.com/150" alt="Video 1">
-        <h3>Título 1</h3>
-        <p>Hecho por: Artista 1</p>
-    </a>
-    <a href="https://www.youtube.com/watch?v=video2" target="_blank" class="card">
-        <img src="https://via.placeholder.com/150" alt="Video 2">
-        <h3>Título 2</h3>
-        <p>Hecho por: Artista 2</p>
-    </a>
-    <a href="https://open.spotify.com/track/xyz" target="_blank" class="card">
-        <img src="https://via.placeholder.com/150" alt="Spotify Track">
-        <h3>Título 3</h3>
-        <p>Hecho por: Artista 3</p>
-    </a>
-</div>
+   
 
 <div class="corner-images">
     <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935311/logo_cenigraf-02_pa61ux.png" class="img-pagina1">
@@ -296,6 +280,24 @@ $result = mysqli_query($conn, $query);
 <?php endif; ?>
 
 <h1>🎨 Concurso de Ilustraciones</h1>
+
+     <div class="fixed-cards">
+    <a href="https://www.youtube.com/watch?v=video1" target="_blank" class="card">
+        <img src="https://via.placeholder.com/150" alt="Video 1">
+        <h3>Título 1</h3>
+        <p>Hecho por: Artista 1</p>
+    </a>
+    <a href="https://www.youtube.com/watch?v=video2" target="_blank" class="card">
+        <img src="https://via.placeholder.com/150" alt="Video 2">
+        <h3>Título 2</h3>
+        <p>Hecho por: Artista 2</p>
+    </a>
+    <a href="https://open.spotify.com/track/xyz" target="_blank" class="card">
+        <img src="https://via.placeholder.com/150" alt="Spotify Track">
+        <h3>Título 3</h3>
+        <p>Hecho por: Artista 3</p>
+    </a>
+</div>
 
 <div class="gallery">
     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
