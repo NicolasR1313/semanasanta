@@ -199,6 +199,7 @@ $result = mysqli_query($conn, $query);
     display: flex;
     gap: 1vw;
     z-index: 9999;
+    display: inline-block;
 }
 
 
