@@ -348,7 +348,7 @@ $result = mysqli_query($conn, $query);
     </div>
 
     <div class="card-juliana">
-        <a href="https://open.spotify.com/track/xyz" target="_blank">
+        <a href="https://open.spotify.com/episode/1awE8AypZGbGWhahdxgIah?si=VPccaIa8RRCEdaYUQbl2qQ" target="_blank">
             <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745947299/arte_de_barroco_1_g1nbbi.png" alt="Spotify Track">
             <h3>Título 3</h3>
             <p>Hecho por: Juliana Letrado, Yuliana Sánchez</p>
