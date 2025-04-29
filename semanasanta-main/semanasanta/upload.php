@@ -133,34 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
     width: 50px;
     height: auto;
 }
-
-.corner-images {
-    position: fixed;
-    top: 1vw;
-    right: 1vw;
-    display: flex;
-    gap: 1vw;
-    z-index: 1000;
-}
-
-.corner-images img {
-    max-height: 15vh;
-    max-width: 25vw;
-    height: auto;
-    width: auto;
-    opacity: 0.9;
-    transition: transform 0.3s ease;
-}
-        @media (max-width: 768px) {
-    .corner-images {
-        top: auto;
-        bottom: 1vw; /* cambia la posición vertical */
-        right: 1vw;
-        flex-direction: column; /* una imagen encima de la otra si lo prefieres */
-        align-items: flex-end;
-    }
-}
-        .header-flex h1 {
+.header-flex h1 {
     font-size: 2.2em;
     color: white;
     margin: 20px 0;
@@ -172,6 +145,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
     flex: 1;
     min-width: 200px;
 }
+
+.corner-images {
+    display: flex;
+    gap: 1vw;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.corner-images img {
+    max-height: 10vh;
+    max-width: 25vw;
+    height: auto;
+    width: auto;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .corner-images {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .corner-images img {
+        max-width: 40vw;
+    }
+}
+
+    
     </style>
 </head>
 <div class="header-flex">
