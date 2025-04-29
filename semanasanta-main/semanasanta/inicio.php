@@ -283,19 +283,24 @@ $result = mysqli_query($conn, $query);
 
      <div class="fixed-cards">
     <a href="https://www.youtube.com/watch?v=video1" target="_blank" class="card">
-        <img src="https://via.placeholder.com/150" alt="Video 1">
+        <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745947457/poster_3D_web_Mesa_de_trabajo_1_wnj8wa.jpg" alt="Video 1">
         <h3>Título 1</h3>
-        <p>Hecho por: Artista 1</p>
+        <p>Hecho por: Laura Sánchez 
+Andrés Garzón
+Gabriela Ramírez
+José Flórez 
+Juan Palacios</p>
     </a>
     <a href="https://www.youtube.com/watch?v=video2" target="_blank" class="card">
         <img src="https://via.placeholder.com/150" alt="Video 2">
         <h3>Título 2</h3>
-        <p>Hecho por: Artista 2</p>
+        <p>Hecho por: Angie Lorena Sierra</p>
     </a>
     <a href="https://open.spotify.com/track/xyz" target="_blank" class="card">
-        <img src="https://via.placeholder.com/150" alt="Spotify Track">
+        <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745947299/arte_de_barroco_1_g1nbbi.png" alt="Spotify Track">
         <h3>Título 3</h3>
-        <p>Hecho por: Artista 3</p>
+        <p>Hecho por: Juliana Letrado
+ Yuliana Sánchez</p>
     </a>
 </div>
 
