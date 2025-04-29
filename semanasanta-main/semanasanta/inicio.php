@@ -218,15 +218,26 @@ $result = mysqli_query($conn, $query);
         align-items: flex-end;
     }
 }
-      .card-laura, .card-angie, .card-juliana {
+     .cards-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* para que en pantallas pequeñas se acomoden una debajo de la otra */
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card-laura, .card-angie, .card-juliana {
     background-color: #fff8e1;
     border: 2px solid #d4af37;
     border-radius: 12px;
     box-shadow: 4px 4px 10px rgba(139, 94, 60, 0.3);
     padding: 12px;
-    margin: 15px auto;
-    max-width: 350px;
     text-align: center;
+    width: auto;
+    max-width: 300px;
+    flex: 1;
+    min-width: 220px;
 }
 
 .card-laura img {
@@ -236,7 +247,7 @@ $result = mysqli_query($conn, $query);
 }
 
 .card-angie img {
-    width: 70%;
+    width: 80%;
     height: auto;
     border-radius: 10px;
 }
@@ -265,6 +276,7 @@ $result = mysqli_query($conn, $query);
 
 
 
+
     </style>
 </head>
     <div class="corner-images">
@@ -285,29 +297,32 @@ $result = mysqli_query($conn, $query);
 
 <h1>🎨 Concurso de Ilustraciones</h1>
 
-     <div class="card-laura">
-    <a href="https://www.youtube.com/watch?v=video1" target="_blank">
-        <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745947457/poster_3D_web_Mesa_de_trabajo_1_wnj8wa.jpg" alt="Video 1">
-        <h3>Título 1</h3>
-        <p>Hecho por: Laura Sánchez, Andrés Garzón, Gabriela Ramírez, José Flórez, Juan Palacios</p>
-    </a>
+     <div class="cards-row">
+    <div class="card-laura">
+        <a href="https://www.youtube.com/watch?v=video1" target="_blank">
+            <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745947457/poster_3D_web_Mesa_de_trabajo_1_wnj8wa.jpg" alt="Video 1">
+            <h3>Título 1</h3>
+            <p>Hecho por: Laura Sánchez, Andrés Garzón, Gabriela Ramírez, José Flórez, Juan Palacios</p>
+        </a>
+    </div>
+
+    <div class="card-angie">
+        <a href="https://www.youtube.com/watch?v=video2" target="_blank">
+            <img src="https://via.placeholder.com/150" alt="Video 2">
+            <h3>Título 2</h3>
+            <p>Hecho por: Angie Lorena Sierra</p>
+        </a>
+    </div>
+
+    <div class="card-juliana">
+        <a href="https://open.spotify.com/track/xyz" target="_blank">
+            <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745947299/arte_de_barroco_1_g1nbbi.png" alt="Spotify Track">
+            <h3>Título 3</h3>
+            <p>Hecho por: Juliana Letrado, Yuliana Sánchez</p>
+        </a>
+    </div>
 </div>
 
-<div class="card-angie">
-    <a href="https://www.youtube.com/watch?v=video2" target="_blank">
-        <img src="https://via.placeholder.com/150" alt="Video 2">
-        <h3>Título 2</h3>
-        <p>Hecho por: Angie Lorena Sierra</p>
-    </a>
-</div>
-
-<div class="card-juliana">
-    <a href="https://open.spotify.com/track/xyz" target="_blank">
-        <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745947299/arte_de_barroco_1_g1nbbi.png" alt="Spotify Track">
-        <h3>Título 3</h3>
-        <p>Hecho por: Juliana Letrado, Yuliana Sánchez</p>
-    </a>
-</div>
 
 
 <div class="gallery">
