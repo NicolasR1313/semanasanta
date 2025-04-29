@@ -131,17 +131,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     height: auto;
 }
 
-        .header-flex h1 {
+       .header-flex h1 {
     font-size: 2.2em;
     color: white;
-    margin: -10px 0;
+    margin: 10px 0;
     border-bottom: 4px double #d4af37;
-    display: inline-block;
     padding-bottom: 10px;
     font-family: Calibri, sans-serif;
-    text-align: left;
     flex: 1;
     min-width: 200px;
+    text-align: left;
+    display: block; /* Cambio de inline-block a block */
+}
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Esto asegura que estén al mismo nivel verticalmente */
+    padding: 10px 20px;
+    flex-wrap: wrap;
 }
 
 .corner-images {
