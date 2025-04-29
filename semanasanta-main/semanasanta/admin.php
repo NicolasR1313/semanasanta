@@ -24,13 +24,13 @@ if (isset($_POST['edit_details'])) {
     $new_autor = mysqli_real_escape_string($conn, $_POST['new_autor']);
 
     // Actualizar en la base de datos
-    mysqli_query($conn, "UPDATE ilustraciones SET 
-        titulo = '$new_title', 
-        tecnica = '$new_tecnica', 
-        dimensiones = '$new_dimensiones', 
-        anio = '$new_anio' 
-        autor = '$new_autor' 
-        WHERE id = $id");
+   mysqli_query($conn, "UPDATE ilustraciones SET 
+    titulo = '$new_title', 
+    tecnica = '$new_tecnica', 
+    dimensiones = '$new_dimensiones', 
+    anio = '$new_anio', 
+    autor = '$new_autor' 
+    WHERE id = $id");
 }
 
 // Eliminar ilustración
