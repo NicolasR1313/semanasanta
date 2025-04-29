@@ -131,37 +131,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     height: auto;
 }
 
+        .header-flex h1 {
+    font-size: 2.2em;
+    color: white;
+    margin: 20px 0;
+    border-bottom: 4px double #d4af37;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-family: Calibri, sans-serif;
+    text-align: left;
+    flex: 1;
+    min-width: 200px;
+}
+
 .corner-images {
-    position: fixed;
-    top: 1vw;
-    right: 1vw;
     display: flex;
     gap: 1vw;
-    z-index: 1000;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .corner-images img {
-    max-height: 15vh;
+    max-height: 10vh;
     max-width: 25vw;
     height: auto;
     width: auto;
     opacity: 0.9;
     transition: transform 0.3s ease;
 }
-        @media (max-width: 768px) {
+
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
     .corner-images {
-        top: auto;
-        bottom: 1vw; /* cambia la posición vertical */
-        right: 1vw;
-        flex-direction: column; /* una imagen encima de la otra si lo prefieres */
-        align-items: flex-end;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .corner-images img {
+        max-width: 40vw;
     }
 }
+
+
     </style>
 </head>
 <body>
-    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935311/logo_cenigraf-02_pa61ux.png" class="img-pagina1">
-    <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935416/logo_evento_diaArte_Mesa_de_trabajo_1_anparc.png" class="img-pagina2">
+    <div class="header-flex">
+    <h1>🎨 Registrate</h1>
+    <div class="corner-images">
+        <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935311/logo_cenigraf-02_pa61ux.png" class="img-pagina1">
+        <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935416/logo_evento_diaArte_Mesa_de_trabajo_1_anparc.png" class="img-pagina2">
+    </div>
+</div>
+
 
 
 
