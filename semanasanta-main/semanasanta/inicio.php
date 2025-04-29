@@ -218,6 +218,39 @@ $result = mysqli_query($conn, $query);
         align-items: flex-end;
     }
 }
+        .fixed-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px auto;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.fixed-cards .card {
+    background-color: #fffbe6;
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: #5c4033;
+    width: 250px;
+    padding: 15px;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.fixed-cards .card:hover {
+    transform: scale(1.05);
+}
+
+.fixed-cards .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
 
 
 
@@ -227,6 +260,25 @@ $result = mysqli_query($conn, $query);
     </style>
 </head>
 <body>
+
+    <div class="fixed-cards">
+    <a href="https://www.youtube.com/watch?v=video1" target="_blank" class="card">
+        <img src="https://via.placeholder.com/150" alt="Video 1">
+        <h3>Título 1</h3>
+        <p>Hecho por: Artista 1</p>
+    </a>
+    <a href="https://www.youtube.com/watch?v=video2" target="_blank" class="card">
+        <img src="https://via.placeholder.com/150" alt="Video 2">
+        <h3>Título 2</h3>
+        <p>Hecho por: Artista 2</p>
+    </a>
+    <a href="https://open.spotify.com/track/xyz" target="_blank" class="card">
+        <img src="https://via.placeholder.com/150" alt="Spotify Track">
+        <h3>Título 3</h3>
+        <p>Hecho por: Artista 3</p>
+    </a>
+</div>
+
 <div class="corner-images">
     <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935311/logo_cenigraf-02_pa61ux.png" class="img-pagina1">
     <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745935416/logo_evento_diaArte_Mesa_de_trabajo_1_anparc.png" class="img-pagina2">
