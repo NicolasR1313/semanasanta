@@ -277,7 +277,7 @@ $result = mysqli_query($conn, $query);
 
 .card-angie img {
     width: 100%;         /* Aumenta el ancho al 100% del contenedor */
-    max-height: 350px;   /* Aumenta la altura */
+    max-height: 500px;   /* Aumenta la altura */
     object-fit: cover;   /* Asegura un buen encuadre sin distorsión */
     border-radius: 10px;
 }
