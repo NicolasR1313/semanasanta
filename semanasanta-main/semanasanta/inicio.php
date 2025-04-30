@@ -340,7 +340,7 @@ $result = mysqli_query($conn, $query);
     </div>
 
     <div class="card-angie">
-        <a href="https://www.youtube.com/watch?v=video2" target="_blank">
+        <a href="https://youtu.be/krdpA6b81rM" target="_blank">
             <img src="https://res.cloudinary.com/dsktdsxik/image/upload/v1745962705/032e435c-49d5-4034-972c-2389bbcca3e5_q14wt2.jpg" alt="Video 2">
             <h3>Youtube: Video sobre el barroco</h3>
             <p>Hecho por: Angie Lorena Sierra</p>
