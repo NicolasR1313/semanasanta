@@ -217,5 +217,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
 
         <a href="index.php">← Volver a la galería</a>
     </div>
+    <footer style="text-align: center; padding: 20px; background-color: rgba(255, 248, 225, 0.8); color: #5c4033; font-family: Georgia, serif; font-size: 0.9em; border-top: 2px solid #d4af37;">
+    Realizado por Nicolás Ríos
+</footer>
 </body>
 </html>
